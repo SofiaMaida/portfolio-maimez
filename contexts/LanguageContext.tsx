@@ -11,28 +11,58 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+// Helper function to safely access localStorage
+const getStoredLanguage = (): Language | null => {
+  if (typeof window === 'undefined') return null;
+  try {
+    return (localStorage.getItem('language') as Language) || null;
+  } catch (error) {
+    console.error('Error accessing localStorage:', error);
+    return null;
+  }
+};
 
-  // Load language from localStorage on initial render
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguageState] = useState<Language>('en');
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Set the initial language state on mount
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage) {
-      setLanguage(savedLanguage);
-    } else {
-      // Default to browser language if available, otherwise 'en'
+    setIsMounted(true);
+    
+    const storedLanguage = getStoredLanguage();
+    if (storedLanguage) {
+      setLanguageState(storedLanguage);
+    } else if (typeof window !== 'undefined') {
+      // Only access navigator on client side
       const browserLang = navigator.language.split('-')[0];
-      setLanguage(browserLang === 'es' ? 'es' : 'en');
+      const defaultLang: Language = browserLang === 'es' ? 'es' : 'en';
+      setLanguageState(defaultLang);
+      // Save default language to localStorage
+      try {
+        localStorage.setItem('language', defaultLang);
+      } catch (error) {
+        console.error('Error saving to localStorage:', error);
+      }
     }
   }, []);
 
-  // Save language preference to localStorage when it changes
-  useEffect(() => {
-    if (language) {
-      localStorage.setItem('language', language);
-      document.documentElement.lang = language;
+  // Update language and save to localStorage
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem('language', lang);
+      document.documentElement.lang = lang;
+    } catch (error) {
+      console.error('Error saving language preference:', error);
     }
-  }, [language]);
+  };
+
+  // Only render the provider with the actual language state after mounting
+  // This prevents hydration mismatches
+  if (!isMounted) {
+    return <>{children}</>;
+  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
