@@ -5,8 +5,11 @@ import type React from "react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { translations } from "@/lib/i18n"
 
 export default function Contact() {
+  const { language } = useLanguage()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,10 +41,10 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            Let's Create Something <span className="text-primary">Amazing</span>
+            {translations[language].contact.title} <span className="text-primary">{translations[language].contact.titleHighlight}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Ready to bring your vision to life? Get in touch and let's start a conversation.
+            {translations[language].contact.subtitle}
           </p>
         </motion.div>
 
@@ -55,7 +58,7 @@ export default function Contact() {
         >
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-foreground">
-              Name
+              {translations[language].contact.nameLabel}
             </label>
             <motion.div
               animate={{
@@ -73,14 +76,14 @@ export default function Contact() {
                 onBlur={() => setFocusedField(null)}
                 required
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
-                placeholder="Your name"
+                placeholder={translations[language].contact.namePlaceholder}
               />
             </motion.div>
           </div>
 
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium text-foreground">
-              Email
+              {translations[language].contact.emailLabel}
             </label>
             <motion.div
               animate={{
@@ -98,14 +101,14 @@ export default function Contact() {
                 onBlur={() => setFocusedField(null)}
                 required
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
-                placeholder="your@email.com"
+                placeholder={translations[language].contact.emailPlaceholder}
               />
             </motion.div>
           </div>
 
           <div className="space-y-2">
             <label htmlFor="message" className="text-sm font-medium text-foreground">
-              Message
+              {translations[language].contact.messageLabel}
             </label>
             <motion.div
               animate={{
@@ -123,7 +126,7 @@ export default function Contact() {
                 required
                 rows={6}
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground resize-none"
-                placeholder="Tell us about your project..."
+                placeholder={translations[language].contact.messagePlaceholder}
               />
             </motion.div>
           </div>
@@ -134,7 +137,7 @@ export default function Contact() {
               size="lg"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 rounded-lg transition-all shadow-lg hover:shadow-xl"
             >
-              Send Message
+              {translations[language].contact.submitButton}
             </Button>
           </motion.div>
         </motion.form>
@@ -146,7 +149,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-muted-foreground mb-4">Or reach us at</p>
+          <p className="text-sm text-muted-foreground mb-4">{translations[language].contact.orReachUs}</p>
           <a
             href="mailto:hello@maimez.com"
             className="text-lg font-medium text-accent hover:text-accent/80 transition-colors"

@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { translations } from "@/lib/i18n"
 
 export default function Hero() {
+  const { language } = useLanguage()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -58,9 +61,9 @@ export default function Hero() {
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-6 text-balance"
         >
-          Crafting Digital <span className="text-primary">Experiences</span>
+          {translations[language].hero.title} <span className="text-primary">{translations[language].hero.titleHighlight}</span>
           <br />
-          That Inspire
+          {translations[language].hero.titleEnd}
         </motion.h1>
 
         {/* Subtitle */}
@@ -68,15 +71,14 @@ export default function Hero() {
           variants={itemVariants}
           className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed text-pretty"
         >
-          We transform bold ideas into stunning digital realities. From brand identity to cutting-edge web experiences,
-          we bring your vision to life.
+          {translations[language].hero.subtitle}
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <motion.div variants={buttonVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button size="lg" className="text-base px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground">
-              View Projects
+              {translations[language].hero.ctaPrimary}
             </Button>
           </motion.div>
 
@@ -86,7 +88,7 @@ export default function Hero() {
               variant="outline"
               className="text-base px-8 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground bg-transparent"
             >
-              Work With Us
+              {translations[language].hero.ctaSecondary}
             </Button>
           </motion.div>
         </motion.div>
@@ -103,7 +105,7 @@ export default function Hero() {
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2 text-muted-foreground"
           >
-            <span className="text-xs uppercase tracking-wider">Scroll</span>
+            <span className="text-xs uppercase tracking-wider">{translations[language].hero.scroll}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
