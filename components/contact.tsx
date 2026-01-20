@@ -5,11 +5,9 @@ import type React from "react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/LanguageContext"
 import { translations } from "@/lib/i18n"
 
 export default function Contact() {
-  const { language } = useLanguage()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,10 +39,10 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            {translations[language].contact.title} <span className="text-primary">{translations[language].contact.titleHighlight}</span>
+            {translations.contact.title} <span className="text-primary">{translations.contact.titleHighlight}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            {translations[language].contact.subtitle}
+            {translations.contact.subtitle}
           </p>
         </motion.div>
 
@@ -58,7 +56,7 @@ export default function Contact() {
         >
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-foreground">
-              {translations[language].contact.nameLabel}
+              {translations.contact.nameLabel}
             </label>
             <motion.div
               animate={{
@@ -76,14 +74,14 @@ export default function Contact() {
                 onBlur={() => setFocusedField(null)}
                 required
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
-                placeholder={translations[language].contact.namePlaceholder}
+                placeholder={translations.contact.namePlaceholder}
               />
             </motion.div>
           </div>
 
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium text-foreground">
-              {translations[language].contact.emailLabel}
+              {translations.contact.emailLabel}
             </label>
             <motion.div
               animate={{
@@ -101,14 +99,14 @@ export default function Contact() {
                 onBlur={() => setFocusedField(null)}
                 required
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
-                placeholder={translations[language].contact.emailPlaceholder}
+                placeholder={translations.contact.emailPlaceholder}
               />
             </motion.div>
           </div>
 
           <div className="space-y-2">
             <label htmlFor="message" className="text-sm font-medium text-foreground">
-              {translations[language].contact.messageLabel}
+              {translations.contact.messageLabel}
             </label>
             <motion.div
               animate={{
@@ -126,7 +124,7 @@ export default function Contact() {
                 required
                 rows={6}
                 className="w-full px-4 py-3 bg-card border-2 border-border rounded-lg focus:border-primary focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground resize-none"
-                placeholder={translations[language].contact.messagePlaceholder}
+                placeholder={translations.contact.messagePlaceholder}
               />
             </motion.div>
           </div>
@@ -137,7 +135,7 @@ export default function Contact() {
               size="lg"
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 rounded-lg transition-all shadow-lg hover:shadow-xl"
             >
-              {translations[language].contact.submitButton}
+              {translations.contact.submitButton}
             </Button>
           </motion.div>
         </motion.form>
@@ -149,7 +147,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-muted-foreground mb-4">{translations[language].contact.orReachUs}</p>
+          <p className="text-sm text-muted-foreground mb-4">{translations.contact.orReachUs}</p>
           <a
             href="mailto:hello@maimez.com"
             className="text-lg font-medium text-accent hover:text-accent/80 transition-colors"

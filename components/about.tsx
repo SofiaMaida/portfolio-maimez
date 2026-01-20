@@ -2,12 +2,10 @@
 
 import { motion } from "framer-motion"
 import TeamCard from "./team-card"
-import { useLanguage } from "@/contexts/LanguageContext"
 import { translations } from "@/lib/i18n"
 
 export default function About() {
-  const { language } = useLanguage()
-  const teamMembers = translations[language].about.team
+  const teamMembers = translations.about.team
   return (
     <section className="relative py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
@@ -25,21 +23,27 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-4"
           >
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">{translations[language].about.badge}</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">{translations.about.badge}</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-            {translations[language].about.title}
+            {translations.about.title}
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
-            {translations[language].about.subtitle}
+            {translations.about.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {teamMembers.map((member, index) => (
-            <TeamCard key={member.name} {...member} />
+            <TeamCard 
+              key={member.name} 
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              skills={[...member.skills]}
+            />
           ))}
         </div>
       </div>

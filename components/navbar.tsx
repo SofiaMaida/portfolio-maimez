@@ -4,8 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import ThemeToggle from "./theme-toggle"
-import { LanguageSwitcher } from "./language-switcher"
-import { useLanguage } from "@/contexts/LanguageContext"
 import { translations } from "@/lib/i18n"
 
 export default function Navbar() {
@@ -19,12 +17,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const { language } = useLanguage()
   const navLinks = [
-    { name: translations[language].nav.home, href: "#" },
-    { name: translations[language].nav.about, href: "#about" },
-    { name: translations[language].nav.projects, href: "#projects" },
-    { name: translations[language].nav.contact, href: "#contact" },
+    { name: translations.nav.home, href: "#" },
+    { name: translations.nav.about, href: "#about" },
+    { name: translations.nav.projects, href: "#projects" },
+    { name: translations.nav.contact, href: "#contact" },
   ]
 
   return (
@@ -67,13 +64,11 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
-            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitcher />
             <ThemeToggle />
             <button className="p-2 text-foreground/70 hover:text-foreground">
               <svg

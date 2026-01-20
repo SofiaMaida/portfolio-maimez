@@ -23,46 +23,29 @@ const getStoredLanguage = (): Language | null => {
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en');
-  const [isMounted, setIsMounted] = useState(false);
+  const [language, setLanguageState] = useState<Language>('es');
 
-  // Set the initial language state on mount
+  // Initialize language on client - always Spanish
   useEffect(() => {
-    setIsMounted(true);
-    
-    const storedLanguage = getStoredLanguage();
-    if (storedLanguage) {
-      setLanguageState(storedLanguage);
-    } else if (typeof window !== 'undefined') {
-      // Only access navigator on client side
-      const browserLang = navigator.language.split('-')[0];
-      const defaultLang: Language = browserLang === 'es' ? 'es' : 'en';
-      setLanguageState(defaultLang);
-      // Save default language to localStorage
-      try {
-        localStorage.setItem('language', defaultLang);
-      } catch (error) {
-        console.error('Error saving to localStorage:', error);
-      }
+    setLanguageState('es');
+    document.documentElement.lang = 'es';
+    try {
+      localStorage.setItem('language', 'es');
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
     }
   }, []);
 
-  // Update language and save to localStorage
+  // Update language and save to localStorage (kept for compatibility but always sets to 'es')
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+    setLanguageState('es');
     try {
-      localStorage.setItem('language', lang);
-      document.documentElement.lang = lang;
+      localStorage.setItem('language', 'es');
+      document.documentElement.lang = 'es';
     } catch (error) {
       console.error('Error saving language preference:', error);
     }
   };
-
-  // Only render the provider with the actual language state after mounting
-  // This prevents hydration mismatches
-  if (!isMounted) {
-    return <>{children}</>;
-  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>

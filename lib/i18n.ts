@@ -1,113 +1,5 @@
 export const translations = {
-  en: {
-    nav: {
-      home: "Home",
-      about: "About",
-      projects: "Projects",
-      contact: "Contact",
-    },
-    hero: {
-      title: "Crafting Digital",
-      titleHighlight: "Experiences",
-      titleEnd: "That Inspire",
-      subtitle: "We transform bold ideas into stunning digital realities. From brand identity to cutting-edge web experiences, we bring your vision to life.",
-      ctaPrimary: "View Projects",
-      ctaSecondary: "Work With Us",
-      scroll: "Scroll",
-    },
-    about: {
-      badge: "About Maimez",
-      title: "Crafting Digital Excellence",
-      subtitle: "We're a boutique digital agency dedicated to transforming bold ideas into exceptional digital experiences. Our approach combines strategic thinking, innovative design, and cutting-edge technology to create solutions that drive results.",
-      team: [
-        {
-          name: "Alex Rivera",
-          role: "Creative Director & Co-Founder",
-          bio: "Visionary designer with 10+ years crafting brand identities and digital experiences that resonate. Passionate about merging creativity with strategy.",
-          skills: ["Brand Strategy", "UI/UX Design", "Creative Direction", "Design Systems"],
-        },
-        {
-          name: "Jordan Chen",
-          role: "Technical Lead & Co-Founder",
-          bio: "Full-stack architect specializing in scalable web solutions and modern frameworks. Transforms complex ideas into elegant, performant applications.",
-          skills: ["React/Next.js", "TypeScript", "System Architecture", "Web Performance"],
-        },
-      ],
-    },
-    projects: {
-      badge: "Our Work",
-      title: "Featured Projects",
-      subtitle: "Explore our portfolio of successful projects across design and development disciplines.",
-      members: {
-        alex: "Alex Rivera",
-        jordan: "Jordan Chen",
-      },
-      alexProjects: [
-        {
-          title: "Luxe Fashion Rebrand",
-          description: "Complete visual identity redesign for a luxury fashion brand, including logo, typography system, and digital brand guidelines that elevated their market presence.",
-          techStack: ["Figma", "Adobe Suite", "Brand Strategy", "Design Systems"],
-          link: "#",
-        },
-        {
-          title: "FinTech Mobile App",
-          description: "End-to-end UX/UI design for a financial technology startup, focusing on intuitive user flows and accessible design patterns for complex financial data.",
-          techStack: ["UI/UX Design", "Prototyping", "User Research", "Accessibility"],
-          link: "#",
-        },
-        {
-          title: "Wellness Platform Redesign",
-          description: "Strategic redesign of a health and wellness platform, improving user engagement by 150% through refined information architecture and modern visual design.",
-          techStack: ["UX Strategy", "Visual Design", "Responsive Design", "Analytics"],
-          link: "#",
-        },
-      ],
-      jordanProjects: [
-        {
-          title: "E-Commerce Platform",
-          description: "Built a high-performance e-commerce platform handling 100K+ daily transactions with real-time inventory management and seamless checkout experience.",
-          techStack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-          link: "#",
-        },
-        {
-          title: "Real-Time Collaboration Tool",
-          description: "Developed a WebSocket-based collaboration platform enabling teams to work together in real-time with optimistic UI updates and conflict resolution.",
-          techStack: ["React", "WebSockets", "Redis", "Node.js"],
-          link: "#",
-        },
-        {
-          title: "Analytics Dashboard",
-          description: "Created a comprehensive analytics dashboard processing millions of data points with interactive visualizations and custom reporting capabilities.",
-          techStack: ["Next.js", "D3.js", "TanStack Query", "Python"],
-          link: "#",
-        },
-      ],
-    },
-    contact: {
-      title: "Let's Create Something",
-      titleHighlight: "Amazing",
-      subtitle: "Ready to bring your vision to life? Get in touch and let's start a conversation.",
-      nameLabel: "Name",
-      namePlaceholder: "Your name",
-      emailLabel: "Email",
-      emailPlaceholder: "your@email.com",
-      messageLabel: "Message",
-      messagePlaceholder: "Tell us about your project...",
-      submitButton: "Send Message",
-      orReachUs: "Or reach us at",
-    },
-    footer: {
-      brand: "Maimez",
-      tagline: "Crafting digital experiences with precision and creativity. Your vision, our expertise.",
-      navigation: "Navigation",
-      connect: "Connect",
-      rights: "All rights reserved",
-      privacy: "Privacy Policy",
-      terms: "Terms of Service",
-    },
-  },
-  es: {
-    nav: {
+  nav: {
       home: "Inicio",
       about: "Sobre nosotros",
       projects: "Proyectos",
@@ -128,14 +20,14 @@ export const translations = {
       subtitle: "Somos una agencia digital boutique dedicada a transformar ideas audaces en experiencias digitales excepcionales. Nuestro enfoque combina pensamiento estratégico, diseño innovador y tecnología de vanguardia para crear soluciones que generan resultados.",
       team: [
         {
-          name: "Alex Rivera",
+          name: "Brenda Gomez",
           role: "Director Creativo y Co-Fundador",
           bio: "Diseñador visionario con más de 10 años creando identidades de marca y experiencias digitales que resuenan. Apasionado por fusionar creatividad con estrategia.",
           skills: ["Estrategia de Marca", "Diseño UI/UX", "Dirección Creativa", "Sistemas de Diseño"],
         },
         {
-          name: "Jordan Chen",
-          role: "Líder Técnico y Co-Fundador",
+          name: "Sofia Maidana",
+          role: "Desarrolladora",
           bio: "Arquitecto full-stack especializado en soluciones web escalables y frameworks modernos. Transforma ideas complejas en aplicaciones elegantes y eficientes.",
           skills: ["React/Next.js", "TypeScript", "Arquitectura de Sistemas", "Rendimiento Web"],
         },
@@ -145,11 +37,7 @@ export const translations = {
       badge: "Nuestro Trabajo",
       title: "Proyectos Destacados",
       subtitle: "Explora nuestro portafolio de proyectos exitosos en disciplinas de diseño y desarrollo.",
-      members: {
-        alex: "Alex Rivera",
-        jordan: "Jordan Chen",
-      },
-      alexProjects: [
+      allProjects: [
         {
           title: "Rediseño de Marca de Moda de Lujo",
           description: "Rediseño completo de identidad visual para una marca de moda de lujo, incluyendo logo, sistema tipográfico y guías de marca digital que elevaron su presencia en el mercado.",
@@ -168,8 +56,6 @@ export const translations = {
           techStack: ["Estrategia UX", "Diseño Visual", "Diseño Responsivo", "Analítica"],
           link: "#",
         },
-      ],
-      jordanProjects: [
         {
           title: "Plataforma E-Commerce",
           description: "Construí una plataforma de comercio electrónico de alto rendimiento que maneja más de 100K transacciones diarias con gestión de inventario en tiempo real y experiencia de pago fluida.",
@@ -211,6 +97,5 @@ export const translations = {
       rights: "Todos los derechos reservados",
       privacy: "Política de Privacidad",
       terms: "Términos de Servicio",
-    },
   },
-} as const
+}
