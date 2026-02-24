@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #32592b;
+  --foreground: #ffffff;
+  --accent: #aa0664;
+}
+
+body {
+  background-color: #32592b;
+  color: white;
+}
+
+/* Busca esto en tu globals.css y reemplázalo */
+::selection {
+  background-color: #aa0664; /* Tu magenta */
+  color: #32592b; /* Tu verde de fondo */
+}
+
+/* También para navegadores basados en Firefox */
+::-moz-selection {
+  background-color: #aa0664;
+  color: #32592b;
+}
+
+/* Barra de scroll personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #32592b;
+}
+::-webkit-scrollbar-thumb {
+  background: #aa0664;
+  border-radius: 10px;
+}
