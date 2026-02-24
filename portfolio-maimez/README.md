@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+MAIMEZ — Digital Craft Studio ⚡
+Maimez es un portfolio boutique de alto impacto diseñado para reflejar una identidad visual disruptiva. El proyecto se aleja de los diseños genéricos para adoptar una estética Brutalista-Editorial, combinando una tipografía masiva con una paleta de colores profunda y transiciones fluidas.
 
-## Getting Started
+🎨 Identidad Visual
+Primary Green: #32592b (Deep Forest)
+Accent Magenta: #aa0664 (Vibrant Craft)
+Typography: Brutalist heavy weights con espaciado compacto (tracking-tighter).
 
-First, run the development server:
+🛠️ Tech Stack
+Framework: Next.js 14/15 (App Router)
+Styling: Tailwind CSS
+Animations: Framer Motion
+Forms: Formspree (Integración AJAX/JSON)
+Icons: Lucide React / Custom SVG
 
-```bash
+✨ Key Features
+Brutalist Hero: Tipografía responsiva de gran escala (vw units) con efectos de stroke.
+Editorial Services: Grilla de servicios con jerarquía numérica y diseño de cuadrícula minimalista.
+Interactive Contact: Formulario sincronizado vía API para evitar redirecciones externas, manteniendo al usuario en la experiencia de marca.
+Responsive Design: Adaptabilidad total desde dispositivos móviles hasta pantallas Ultra-Wide.
+Custom Selection: Experiencia de usuario pulida con personalización del resaltado de texto (::selection).
+
+🚀 Instalación y Uso
+Clonar el repositorio:
+
+Bash
+git clone https://github.com/tu-usuario/portfolio-maimez.git
+Instalar dependencias:
+
+Bash
+npm install
+# o
+yarn install
+Configurar variables de entorno:
+Crea un archivo .env.local y añade tu ID de Formspree (o cámbialo directamente en el componente Contact.tsx):
+
+Fragmento de código
+NEXT_PUBLIC_FORMSPREE_ID=tu_id_aqui
+Correr en modo desarrollo:
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📂 Estructura del Proyecto
+/app: Rutas y Layouts de Next.js.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+/components: Componentes modulares (Hero, Navbar, About, Services, Contact).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/public: Assets, logos y tipografías.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desarrollado con ❤️ por Maimez Studio.
+"Transformando ideas en experiencias digitales de alto impacto."
