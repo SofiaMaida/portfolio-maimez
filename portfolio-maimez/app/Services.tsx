@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 
 const servicios = [
   {
@@ -38,10 +37,9 @@ export default function Services() {
       {/* Rejilla de Servicios */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-white/10">
         {servicios.map((s, i) => (
-          <motion.div 
+          <div
             key={i}
-            whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-            className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 flex flex-col last:border-r-0"
+            className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 flex flex-col last:border-r-0 transition-colors hover:bg-white/[0.03]"
           >
             {/* Número gigante en verde claro / opacidad */}
             <span className="text-7xl font-black text-white/10 mb-8 block tracking-tighter">
@@ -64,8 +62,20 @@ export default function Services() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         ))}
+      </div>
+
+      {/* Botón a muestras de proyectos */}
+      <div className="mt-16 flex justify-center">
+        <a
+          href="https://tu-enlace-a-muestras.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-[#aa0664] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#8a0550] transition-colors"
+        >
+          Ver muestras de proyectos similares
+        </a>
       </div>
     </section>
   );
